@@ -1,0 +1,99 @@
+@import url('whitespace-reset.css');
+
+html, body {
+  background: #A7A37E;
+}
+
+body {
+  font: normal 14px "Roboto Condensed", sans-serif;
+}
+
+main {
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #EFECCA;
+}
+
+h1 {
+  padding: 0 0 .6em 0;
+  font-size: 2.2em;
+  color: #002F2F;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+#albums article {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 25%;
+  padding: 0 10px 10px 0;
+  vertical-align: top;
+}
+
+#albums img {
+  display: block;
+  width: 100%;
+  margin: 0 0 10px;
+}
+
+#albums a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#tracks_modal {
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  bottom: 25px;
+  left: 25px;
+  padding: 25px;
+  z-index: 10;
+  background: #EFECCA;
+}
+
+#tracks_modal img {
+  float: left;
+  width: 80px;
+  margin: 0 10px 10px 0;
+}
+#tracks_modal .close {
+  float: right;
+  color: #A7A37E;
+}
+#tracks_modal h2 {
+  padding: 0 0 10px 0;
+}
+#tracks_modal h3 {
+  padding: 0 0 5px 0;
+}
+#tracks_modal ol {
+  clear: both;
+  list-style: decimal inside;
+}
+#tracks_modal li {
+  padding: 7px 0;
+  border-top: 1px solid #A7A37E;
+}
+#tracks_modal small {
+  float: right;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.6);
+}
