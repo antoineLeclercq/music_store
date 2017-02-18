@@ -1,12 +1,12 @@
 {
-  "name": "music_collection",
-  "description": "Music collection application",
+  "name": "music_store",
+  "description": "Music Store Application",
   "main": "app.js",
   "authors": [
     "Antoine Leclercq <antoine.leclercq.49@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/antoineLeclercq/music_store",
   "private": true,
   "ignore": [
     "**/.*",
