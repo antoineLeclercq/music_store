@@ -1,70 +1,32 @@
-/* globals AlbumsView, Albums, Tracks, TracksView */
-
 var App = {
-  init: function () {
-    this.fetchAlbums();
+  $el: $('main'),
+  templates: JST,
+  renderAlbums: function () {
+    this.albums.each(this.renderAlbumView.bind(this));
   },
-  albumsLoaded: function () {
-    this.view = new AlbumsView({
-      collection: this.albums,
-    });
-    this.view.render();
-  },
-  fetchAlbums: function () {
-    this.albums = new Albums();
-    this.albums.fetch({
-      success: function () {
-        this.albumsLoaded();
-      }.bind(this),
+  renderAlbumView: function (model) {
+    new AlbumView({
+      model: model,
     });
   },
-  tracksLoaded: function () {
-    this.tracksView = new TracksView({
-      album: this.selectedAlbum.toJSON(),
-      collection: this.tracks,
-    });
-    this.tracksView.render();
+  createCart: function () {
+    this.cart = new CartItems();
+    this.cart.view = new CartView({ collection: this.cart });
   },
-  fetchTracks: function (name) {
-    this.selectedAlbum = this.albums.findWhere({ title: name });
-    this.tracks = new (Tracks.extend({
-      url: this.selectedAlbum.get('tracksUrl') + '.json',
-    }))();
-    this.tracks.fetch({
-      success: function () {
-        this.tracksLoaded();
-      }.bind(this),
-    });
+  indexView: function () {
+    this.index = new IndexView();
+    this.renderAlbums();
+    this.bindEvents();
+  },
+  newAlbum: function () {
+    new NewAlbumView();
+  },
+  bindEvents: function () {
+    _.extend(this, Backbone.Events);
+    this.listenTo(this.index, 'addAlbum', this.newAlbum);
   },
 };
 
-var Router = Backbone.Router.extend({
-  routes: {
-    'albums/:name': 'getAlbum',
-  },
-  getAlbum: function (name) {
-    App.fetchTracks(name);
-  },
-  index: function () {
-    if (!App.tracksView.$el.is(':animated')) {
-      App.tracksView.fadeOut();
-    }
-  },
-  initialize: function () {
-    this.route(/^\/?$/, 'index');
-  },
+Handlebars.registerHelper('format_price', function (price) {
+  return Number(price).toFixed(2);
 });
-
-var router = new Router();
-
-Backbone.history.start({
-  pushState: true,
-  silent: true,
-});
-
-$(document).on('click', 'a[href^="/"]', function (e) {
-  e.preventDefault();
-  router.navigate($(e.currentTarget).attr('href').replace(/^\//, ''), { trigger: true });
-});
-
-App.init();

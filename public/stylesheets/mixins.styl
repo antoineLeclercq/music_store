@@ -1,0 +1,28 @@
+roboto = "Roboto Condensed", sans-serif
+
+colors = {
+  body: #A7A37E
+  main: #EFECCA
+  font: #002F2F
+  cart: #E6E2AF
+}
+
+input()
+  transition: box-shadow 200ms ease
+  &:focus
+    outline: none
+    box-shadow: 1px 1px 1px 1px darken(colors.body, 10)
+
+button()
+  margin: 5px 0 0 0
+  padding: 5px
+  font-size: 12px
+  background: colors.body
+  transition: box-shadow 200ms ease, background 200ms ease
+  text-decoration: none
+  color: inherit
+  cursor: pointer
+  &:hover
+    box-shadow: 1px 1px 1px 1px darken(colors.body, 10)
+  &:active
+    background: darken(colors.body, 10)

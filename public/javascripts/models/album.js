@@ -1,6 +1,5 @@
 var Album = Backbone.Model.extend({
-  parse: function (attrs) {
-    attrs.tracksUrl = '/albums/' + attrs.title;
-    return attrs;
+  initialize: function () {
+    this.set('price', Number(this.get('price')));
   },
 });

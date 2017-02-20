@@ -1,5 +1,5 @@
-var albumsScaffold = new Albums();
-albumsScaffold.reset([{
+[
+  {
     "artist": "Tori Kelly",
     "title": "Unbreakable Smile",
     "url": "https://itunes.apple.com/us/album/unbreakable-smile-bonus-track/id988591612?v0=WWW-NAUS-ITSTOP100-ALBUMS&l=en&ign-mpt=uo%3D4",
@@ -66,4 +66,4 @@ albumsScaffold.reset([{
     "price": 9.99,
     "date": "2014-10-27"
   }
-]);
+]

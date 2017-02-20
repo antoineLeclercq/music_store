@@ -1,21 +1,29 @@
 {
-  "name": "music_collection",
-  "version": "1.0.0",
-  "description": "Music collection application",
-  "main": "app.js",
+  "name": "music-store",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon ./bin/www",
     "test": "jasmine-node spec --autotest --color --watch ."
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
     "grunt": "^1.0.1",
     "grunt-bower-concat": "^1.0.0",
     "grunt-contrib-uglify": "^2.1.0",
     "jasmine-node": "^1.14.5",
-    "node-static": "^0.7.9",
-    "nodemon": "^1.11.0",
-    "request": "^2.79.0"
+    "morgan": "~1.7.0",
+    "nib": "^1.1.2",
+    "pug": "^2.0.0-beta11",
+    "request": "^2.79.0",
+    "serve-favicon": "~2.3.2",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-handlebars": "^1.0.0",
+    "nodemon": "^1.11.0"
   }
 }

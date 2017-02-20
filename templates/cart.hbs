@@ -1,0 +1,18 @@
+{{#if quantity}}
+<label for="cart_toggle"><i class="fa fa-shopping-cart"></i> {{quantity}} items</label>
+<input type="checkbox" id="cart_toggle">
+<div id="items">
+  <ul>
+    {{#each items}}
+    <li data-id="{{id}}">
+      <p>{{title}} - {{artist}} x {{quantity}}</p>
+      <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+      <span>{{format_price price}}</span>
+    </li>
+    {{/each}}
+  <li><strong>Total: {{total}}</strong></li>
+  </ul>
+</div>
+{{else}}
+<p><i class="fa fa-shopping-cart"></i> 0 items</p>
+{{/if}}

@@ -1,0 +1,128 @@
+@import 'whitespace-reset.css'
+@import 'mixins'
+
+html, body
+  background: colors.body
+
+body
+  font: normal 14px roboto
+
+main
+  max-width: 800px
+  padding: 20px
+  margin: 0 auto
+  background: colors.main
+
+h1
+  padding: 0 0 .6em 0
+  font-size: 2.2em
+  color: colors.font
+
+h2
+  font-size: 1.4em
+
+h3
+  font-size: 1.2em
+
+.btn
+  button()
+
+header
+  position: relative
+  overflow: visible
+  max-width: 800px
+  padding: 20px
+  margin: 0 auto
+  background: colors.main
+
+#cart
+  position: absolute
+  right: 50px
+  padding: 5px
+  background: colors.font
+  color: colors.main
+  label, p
+    padding: 2px 3px
+  label
+    display: inline-block
+    cursor: pointer
+
+#cart_toggle, #items
+  display: none
+
+#cart_toggle:checked + #items
+  display: block
+
+#items
+  padding: 10px
+  background: colors.cart
+  color: colors.font
+  ul
+    overflow: hidden
+    li:last-child
+      float: right
+      margin: 10px 30px 0 0
+      border-top: 1px solid colors.font
+    li
+      margin: 5px 0
+      overflow: hidden
+      p
+        display: inline-block
+      a
+        float: right
+        padding: 0
+        text-decoration: none
+        color: inherit
+      span
+        float: right
+        margin: 0 20px
+    .fa-shopping-cart
+      padding: 0 10px 0 0
+      font-size: inherit
+
+#albums
+  article
+    box-sizing: border-box
+    display: inline-block
+    margin: 0 0 10px 0
+    width: 20%
+    padding: 0 10px 10px 0
+    vertical-align: top
+    text-align: center
+  img
+    display: block
+    width: 100%
+    margin: 0 0 10px
+  a
+    display: inline-block
+    text-decoration: none
+    color: inherit
+  .btn
+    i
+      margin: 0 5px 0 0
+      vertical-align: middle
+      font-size: 14px
+
+footer
+  margin: 40px auto
+  text-align: center
+  .btn
+    font-size: 18px
+
+#new_album
+  fieldset
+    dt
+      margin: 10px 0 5px 0
+      font-size: 16px
+    input
+      input()
+      box-sizing: border-box
+      height: 25px
+      width: 100%
+      padding: 5px
+  .actions
+    margin: 10px 0 0 0
+    .btn
+      display: block
+      margin: 10px auto 0 auto
+      width: 25%

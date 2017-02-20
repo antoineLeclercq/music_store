@@ -15,11 +15,31 @@ module.exports = function (grunt) {
           'backbone': 'underscore',
         }
       }
+    },
+    handlebars: {
+      all: {
+        files: {
+          'public/javascripts/handlebars_templates.js': ['templates/**/*.hbs'],
+        },
+        options: {
+          processContent: removeWhitespace,
+          processName: extractFileName,
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-bower-concat');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['bower_concat', 'uglify']);
+  grunt.registerTask('default', ['bower_concat', 'uglify', 'handlebars']);
 };
+
+function removeWhitespace(template) {
+  return template.replace(/ {2,}/mg, '').replace(/\r|\n/mg, '');
+}
+
+function extractFileName(file) {
+  return file.match(/\/(.+)\.hbs$/).pop();
+}
